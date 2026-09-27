@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expense Tracker — 100% Offline, Privacy-First Android App</title>
+  <meta name="description" content="A modern, lightning-fast, and hardware-encrypted personal finance manager for Android. 100% offline, zero ads, zero trackers, SQLCipher 256-bit AES encryption.">
+  <meta name="keywords" content="Android expense tracker, offline budget app, privacy expense tracker, SQLCipher, Jetpack Compose, personal finance">
+  <meta name="author" content="HrshD1eux">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Expense Tracker — Private, Offline Android Finance Manager">
+  <meta property="og:description" content="No cloud accounts. No ads. No telemetry. 256-bit hardware-encrypted expense tracking with in-line math calculator and Glance widget.">
+  <meta property="og:url" content="https://hrshd1eux.github.io/expense-tracker/">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top Announcement Banner -->
+  <div class="top-banner">
+    <div class="container banner-inner">
+      <span class="badge badge-emerald">🚀 Version 1.0.0 Live</span>
+      <span class="banner-text">100% Offline • Zero Telemetry • 256-Bit Hardware Keystore Encryption</span>
+      <a href="#download" class="banner-link">Download APK →</a>
+    </div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="brand">
+        <div class="brand-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="1" x2="12" y2="23"></line>
+            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+          </svg>
+        </div>
+        <span class="brand-name">Expense Tracker</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#comparison">Top 5 Comparison</a>
+        <a href="#security">Security</a>
+        <a href="#calculator-demo">Live Demo</a>
+        <a href="#download" class="nav-download-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          Direct Download
+        </a>
+        <a href="https://github.com/HrshD1eux/expense-tracker" target="_blank" rel="noopener" class="icon-button" title="View Source on GitHub">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+        </a>
+        <button id="theme-toggle" class="icon-button" aria-label="Toggle light/dark theme" title="Toggle Light/Dark Theme">
+          <span class="theme-icon light-icon">☀️</span>
+          <span class="theme-icon dark-icon">🌙</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="pill-badge">
+          <span class="dot"></span>
+          <span>Open Source • Clean Architecture • Jetpack Compose</span>
+        </div>
+
+        <h1 class="hero-title">
+          Your Money. <br>
+          <span class="gradient-text">Your Privacy.</span> <br>
+          No Compromises.
+        </h1>
+
+        <p class="hero-subtitle">
+          A lightning-fast, military-grade encrypted personal finance manager for Android. 
+          <strong>100% offline</strong> with zero cloud servers, zero ads, zero telemetry, and an in-line math keypad that puts clunky calculator switching to rest.
+        </p>
+
+        <!-- Direct Download CTA Group -->
+        <div class="hero-actions">
+          <a id="hero-download-btn" href="https://github.com/HrshD1eux/expense-tracker/releases/latest/download/ExpenseTracker-v1.0.0-release.apk" class="btn btn-primary btn-large">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <div class="btn-text-group">
+              <span class="btn-main-label">Direct Download APK</span>
+              <span class="btn-sub-label" id="hero-release-label">v1.0.0 • ~12.3 MB • Android 8.0+</span>
+            </div>
+          </a>
+
+          <a href="https://github.com/HrshD1eux/expense-tracker" target="_blank" rel="noopener" class="btn btn-secondary btn-large">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+            <span>GitHub Repository</span>
+          </a>
+        </div>
+
+        <!-- Quick Stats Strip -->
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Offline & Private</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number">256-Bit</span>
+            <span class="stat-label">AES SQLCipher</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number">~12 MB</span>
+            <span class="stat-label">Lean R8 Footprint</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number">0</span>
+            <span class="stat-label">Ads or Trackers</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- App Interactive Preview Frame -->
+      <div class="hero-preview">
+        <div class="phone-frame">
+          <div class="phone-speaker"></div>
+          <div class="phone-screen">
+            <!-- Mock App Header -->
+            <div class="mock-header">
+              <div class="mock-title-group">
+                <span class="mock-greet">Welcome back,</span>
+                <span class="mock-name">Financial Control</span>
+              </div>
+              <div class="mock-status-chip">Offline • Encrypted</div>
+            </div>
+
+            <!-- Mock Safe to Spend Card -->
+            <div class="mock-card mock-safe-card">
+              <div class="mock-safe-header">
+                <span>Daily Safe-to-Spend</span>
+                <span class="mock-safe-val">₹ 1,420</span>
+              </div>
+              <div class="mock-progress-track">
+                <div class="mock-progress-fill" style="width: 45%;"></div>
+              </div>
+              <div class="mock-safe-footer">
+                <span>₹18,400 spent this month</span>
+                <span>Budget: ₹45,000</span>
+              </div>
+            </div>
+
+            <!-- Mock In-line Calculator Demonstration -->
+            <div class="mock-card mock-calc-card">
+              <div class="mock-calc-label">Amount Input (In-line Math)</div>
+              <div class="mock-calc-display">
+                <span class="mock-currency">₹</span>
+                <span class="mock-math-expr">1450 / 3 + 45</span>
+                <span class="mock-cursor">|</span>
+              </div>
+              <div class="mock-calc-result">= ₹ 528.33</div>
+            </div>
+
+            <!-- Mock Category Grid -->
+            <div class="mock-category-label">Most Used Categories (Adaptive)</div>
+            <div class="mock-cat-row">
+              <div class="mock-cat-chip active">🍔 Food (18x)</div>
+              <div class="mock-cat-chip">🛒 Grocery (14x)</div>
+              <div class="mock-cat-chip">🚕 Travel (9x)</div>
+            </div>
+
+            <!-- Mock Bottom Sheet Quick Action -->
+            <div class="mock-save-btn">
+              <span>Save Expense (Cash / UPI)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON TABLE SECTION (Ruthless, Honest, Practical) -->
+  <section id="comparison" class="section comparison-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">Unfiltered Reality Check</span>
+        <h2 class="section-title">Expense Tracker vs. The Top 5 Alternatives</h2>
+        <p class="section-desc">
+          No sugarcoating, no marketing spin. See how standard commercial expense apps trade your sensitive transaction data and privacy for subscriptions and ads.
+        </p>
+      </div>
+
+      <div class="table-responsive">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th class="feature-col">Feature & Dimension</th>
+              <th class="our-app-col highlighted-col">
+                <div class="app-header-cell">
+                  <span class="cell-app-badge">Our App</span>
+                  <span class="cell-app-name">Expense Tracker</span>
+                  <span class="cell-app-version">v1.0.0 (Open Source)</span>
+                </div>
+              </th>
+              <th>Axio (Walnut)</th>
+              <th>Money Manager</th>
+              <th>Spendee</th>
+              <th>Cashew</th>
+              <th>1Money</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="feature-name">
+                <strong>100% Offline by Design</strong>
+                <span>Zero network transactions or telemetry required</span>
+              </td>
+              <td class="highlighted-col cell-win">✅ 100% Offline</td>
+              <td class="cell-fail">❌ Cloud Account Mandatory</td>
+              <td class="cell-partial">⚠️ Local-first + AdMob</td>
+              <td class="cell-fail">❌ Mandatory Cloud Sync</td>
+              <td class="cell-partial">⚠️ Local + Cloud Sync</td>
+              <td class="cell-fail">❌ Cloud Account Req</td>
+            </tr>
+
+            <tr>
+              <td class="feature-name">
+                <strong>Local Database Encryption</strong>
+                <span>Protection against forensic disk dump & root access</span>
+              </td>
+              <td class="highlighted-col cell-win">✅ SQLCipher 256-Bit AES</td>
+              <td class="cell-fail">❌ Plaintext SQLite Cache</td>
+              <td class="cell-fail">❌ Plaintext SQLite</td>
+              <td class="cell-fail">❌ Plaintext SQLite</td>
+              <td class="cell-fail">❌ Unencrypted Room DB</td>
+              <td class="cell-fail">❌ Plaintext SQLite</td>
+            </tr>
+
+            <tr>
+              <td class="feature-name">
+                <strong>Hardware Keystore Protection</strong>
+                <span>Keys isolated in Android TEE / StrongBox</span>
+              </td>
+              <td class="highlighted-col cell-win">✅ Android Keystore MasterKey</td>
+              <td class="cell-fail">❌ None</td>
+              <td class="cell-fail">❌ None</td>
+              <td class="cell-fail">❌ None</td>
+              <td class="cell-fail">❌ None</td>
+              <td class="cell-fail">❌ None</td>
+            </tr>
+
+            <tr>
+              <td class="feature-name">
+                <strong>In-line Math / Calculator Keypad</strong>
+                <span>Calculate splits and tips directly in input</span>
+              </td>
+              <td class="highlighted-col cell-win">✅ Live (+, -, ×, ÷) Math</td>
+              <td class="cell-fail">❌ None</td>
+              <td class="cell-partial">⚠️ Separate Popup Dialog</td>
+              <td class="cell-fail">❌ Simple Keypad Only</td>
+              <td class="cell-partial">⚠️ Basic Arithmetic</td>
+              <td class="cell-partial">⚠️ Separate Popup Dialog</td>
+            </tr>
+
+            <tr>
+              <td class="feature-name">
+                <strong>Multi-Mode App Locks</strong>
+                <span>Variety of secure entry methods</span>
+              </td>
+              <td class="highlighted-col cell-win">✅ Biometric, Pattern, Pass & PIN</td>
+              <td class="cell-partial">⚠️ Biometric/PIN only</td>
+              <td class="cell-partial">⚠️ 4-Digit PIN only</td>
+              <td class="cell-partial">⚠️ Biometric/PIN only</td>
+              <td class="cell-partial">⚠️ Biometric/PIN only</td>
+              <td class="cell-partial">⚠️ 4-Digit PIN only</td>
+            </tr>
+
+            <tr>
+              <td class="feature-name">
+                <strong>Adaptive Frequency Categories</strong>
+                <span>Most-used categories surface to top automatically</span>
+              </td>
+              <td class="highlighted-col cell-win">✅ Dynamic Frequency Sorting</td>
+              <td class="cell-fail">❌ Static List</td>
+              <td class="cell-fail">❌ Manual Sorting Only</td>
+              <td class="cell-fail">❌ Static List</td>
+              <td class="cell-fail">❌ Static List</td>
+              <td class="cell-fail">❌ Static List</td>
+            </tr>
+
+            <tr>
+              <td class="feature-name">
+                <strong>Ads & SMS Financial Scraping</strong>
+                <span>Third-party monetization & data extraction</span>
+              </td>
+              <td class="highlighted-col cell-win">✅ ZERO Ads & ZERO Scraping</td>
+              <td class="cell-fail">❌ Scrapes SMS & Promotes Loans</td>
+              <td class="cell-fail">❌ Interstitial & Banner Ads</td>
+              <td class="cell-fail">❌ Upsells & Promo Trackers</td>
+              <td class="cell-win">✅ Ad-free</td>
+              <td class="cell-fail">❌ Banner Ads in Free Tier</td>
+            </tr>
+
+            <tr>
+              <td class="feature-name">
+                <strong>Pricing & Subscriptions</strong>
+                <span>Are core features held hostage behind paywalls?</span>
+              </td>
+              <td class="highlighted-col cell-win">✅ 100% Free Forever (FOSS)</td>
+              <td class="cell-partial">⚠️ Free (Monetized via Data)</td>
+              <td class="cell-partial">⚠️ Paid License for Ad-free</td>
+              <td class="cell-fail">❌ $14.99–$29.99 / Year</td>
+              <td class="cell-partial">⚠️ Free with tip jar</td>
+              <td class="cell-fail">❌ $19.99 Premium Unlock</td>
+            </tr>
+
+            <tr>
+              <td class="feature-name">
+                <strong>Home Screen Widget</strong>
+                <span>Quick glance at spending with 1-tap add</span>
+              </td>
+              <td class="highlighted-col cell-win">✅ Jetpack Glance (Material 3)</td>
+              <td class="cell-fail">❌ Legacy RemoteViews</td>
+              <td class="cell-partial">⚠️ Basic Legacy Widget</td>
+              <td class="cell-fail">❌ Subscription Required</td>
+              <td class="cell-partial">⚠️ Basic Widget</td>
+              <td class="cell-partial">⚠️ Basic Widget</td>
+            </tr>
+
+            <tr>
+              <td class="feature-name">
+                <strong>APK Size & Performance Bloat</strong>
+                <span>Optimized native footprint</span>
+              </td>
+              <td class="highlighted-col cell-win">✅ ~12.3 MB (R8 Minified)</td>
+              <td class="cell-fail">❌ ~48 MB (SDK Bloat)</td>
+              <td class="cell-partial">⚠️ ~32 MB</td>
+              <td class="cell-fail">❌ ~44 MB</td>
+              <td class="cell-partial">⚠️ ~26 MB</td>
+              <td class="cell-partial">⚠️ ~24 MB</td>
+            </tr>
+
+            <tr>
+              <td class="feature-name">
+                <strong>Local Sandboxed Diagnostics</strong>
+                <span>Troubleshoot crashes without sending telemetries</span>
+              </td>
+              <td class="highlighted-col cell-win">✅ 100% Local In-App Log Viewer</td>
+              <td class="cell-fail">❌ Cloud SDKs (Mixpanel, etc.)</td>
+              <td class="cell-fail">❌ Firebase Crashlytics</td>
+              <td class="cell-fail">❌ Sentry / Firebase</td>
+              <td class="cell-partial">⚠️ Local / Sentry</td>
+              <td class="cell-fail">❌ Firebase Crashlytics</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Live Calculator Demo Section -->
+  <section id="calculator-demo" class="section demo-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">Interactive Feature</span>
+        <h2 class="section-title">Try The In-Line Calculator</h2>
+        <p class="section-desc">
+          Split a bill, sum groceries, or subtract a discount without switching apps. Try typing arithmetic right now:
+        </p>
+      </div>
+
+      <div class="calculator-interactive-card">
+        <div class="calc-display-box">
+          <div class="calc-formula" id="calc-formula">1450 / 3 + 45</div>
+          <div class="calc-result" id="calc-result">₹ 528.33</div>
+        </div>
+
+        <div class="calc-keypad-grid">
+          <button class="calc-btn btn-action" data-val="C">C</button>
+          <button class="calc-btn btn-action" data-val="DEL">⌫</button>
+          <button class="calc-btn btn-op" data-val="/">÷</button>
+          <button class="calc-btn btn-op" data-val="*">×</button>
+
+          <button class="calc-btn btn-num" data-val="7">7</button>
+          <button class="calc-btn btn-num" data-val="8">8</button>
+          <button class="calc-btn btn-num" data-val="9">9</button>
+          <button class="calc-btn btn-op" data-val="-">-</button>
+
+          <button class="calc-btn btn-num" data-val="4">4</button>
+          <button class="calc-btn btn-num" data-val="5">5</button>
+          <button class="calc-btn btn-num" data-val="6">6</button>
+          <button class="calc-btn btn-op" data-val="+">+</button>
+
+          <button class="calc-btn btn-num" data-val="1">1</button>
+          <button class="calc-btn btn-num" data-val="2">2</button>
+          <button class="calc-btn btn-num" data-val="3">3</button>
+          <button class="calc-btn btn-equal" data-val="=">=</button>
+
+          <button class="calc-btn btn-num btn-zero" data-val="0">0</button>
+          <button class="calc-btn btn-num" data-val=".">.</button>
+        </div>
+
+        <div class="calc-note">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+          </svg>
+          <span>Calculated with <strong>exact integer paise precision</strong> in Android, completely immune to floating-point rounding bugs.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Architecture & Security Cards -->
+  <section id="security" class="section security-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">Security & Privacy Under The Hood</span>
+        <h2 class="section-title">Built Like a Vault</h2>
+        <p class="section-desc">
+          We don't ask you to trust a cloud server. Your data never touches a wire.
+        </p>
+      </div>
+
+      <div class="security-cards-grid">
+        <div class="security-card">
+          <div class="security-icon-box">🛡️</div>
+          <h3>SQLCipher 256-Bit AES</h3>
+          <p>
+            The entire Room database file on your internal storage is transparently encrypted at rest with SQLCipher. Even with physical access or root exploits, the raw database file cannot be read without the hardware key.
+          </p>
+        </div>
+
+        <div class="security-card">
+          <div class="security-icon-box">🔑</div>
+          <h3>Android Keystore Daemon</h3>
+          <p>
+            Passphrases are generated inside Android's Hardware Security Module (TEE/StrongBox). Keys are shielded against OS lock screen changes with invalidation immunity.
+          </p>
+        </div>
+
+        <div class="security-card">
+          <div class="security-icon-box">🔐</div>
+          <h3>4-Way Authentication</h3>
+          <p>
+            Choose between Biometrics (Fingerprint/Face unlock), a custom 3×3 Vector Pattern Lock, an Alphanumeric Master Password, or a 4-digit PIN with optional randomized keypad.
+          </p>
+        </div>
+
+        <div class="security-card">
+          <div class="security-icon-box">⚡</div>
+          <h3>Adaptive Frequency Engine</h3>
+          <p>
+            Categories automatically analyze your spending frequency. Your top 3 most used categories are dynamically elevated to the top for 1-tap logging.
+          </p>
+        </div>
+
+        <div class="security-card">
+          <div class="security-icon-box">📊</div>
+          <h3>Safe-To-Spend Intelligence</h3>
+          <p>
+            Calculates dynamic daily spending velocity by distributing remaining monthly budget across remaining days, keeping you from overspending before payday.
+          </p>
+        </div>
+
+        <div class="security-card">
+          <div class="security-icon-box">📱</div>
+          <h3>Jetpack Glance Widget</h3>
+          <p>
+            A high-performance Android home screen widget built with Jetpack Glance. Shows daily and monthly balance with an instant 1-tap expense launcher.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIRECT DOWNLOAD SECTION -->
+  <section id="download" class="section download-section">
+    <div class="container">
+      <div class="download-card">
+        <div class="download-badge">Official Release</div>
+        <h2 class="download-title">Get Expense Tracker for Android</h2>
+        <p class="download-desc">
+          Download the signed, production-ready APK directly to your phone. Free forever, no tracking, no account required.
+        </p>
+
+        <div class="download-cta-box">
+          <a id="direct-apk-btn" href="https://github.com/HrshD1eux/expense-tracker/releases/latest/download/ExpenseTracker-v1.0.0-release.apk" class="btn btn-primary btn-xl">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <div class="btn-text-group">
+              <span class="btn-main-label">Direct Download APK</span>
+              <span class="btn-sub-label" id="direct-apk-version">v1.0.0 • Size: ~12.3 MB • Signed Release</span>
+            </div>
+          </a>
+
+          <a href="https://github.com/HrshD1eux/expense-tracker/releases" target="_blank" rel="noopener" class="btn btn-outline btn-xl">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            <span>All GitHub Releases</span>
+          </a>
+        </div>
+
+        <!-- Verification / SHA256 Box -->
+        <div class="checksum-container">
+          <div class="checksum-header">
+            <span class="checksum-label">SHA-256 Release Checksum Verification</span>
+            <button id="copy-checksum" class="btn-copy">Copy Hash</button>
+          </div>
+          <div class="checksum-value" id="checksum-text">570d952d9f87350a2564cb074c90d500b30855fb97f4f0d07438ad112603476b</div>
+        </div>
+
+        <!-- Installation Instructions -->
+        <div class="install-guide">
+          <h3>📱 How to Install</h3>
+          <div class="steps-grid">
+            <div class="step-card">
+              <div class="step-num">1</div>
+              <div class="step-text">Tap <strong>Direct Download APK</strong> above to download to your Android device.</div>
+            </div>
+            <div class="step-card">
+              <div class="step-num">2</div>
+              <div class="step-text">Open the downloaded APK. If prompted, toggle <strong>"Allow from this source"</strong> in Settings.</div>
+            </div>
+            <div class="step-card">
+              <div class="step-num">3</div>
+              <div class="step-text">Tap <strong>Install</strong> and start managing your finances with 100% offline security!</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-left">
+        <div class="brand">
+          <span class="brand-name">Expense Tracker</span>
+        </div>
+        <p class="footer-tagline">Crafted with precision by <a href="https://github.com/HrshD1eux" target="_blank" rel="noopener"><strong>HrshD1eux</strong></a>.</p>
+        <p class="footer-sub">100% Offline • Free & Open Source under Apache 2.0</p>
+      </div>
+
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Project</h4>
+          <a href="https://github.com/HrshD1eux/expense-tracker" target="_blank" rel="noopener">GitHub Repo</a>
+          <a href="https://github.com/HrshD1eux/expense-tracker/releases" target="_blank" rel="noopener">Releases & APKs</a>
+          <a href="https://github.com/HrshD1eux/expense-tracker/issues" target="_blank" rel="noopener">Issue Tracker</a>
+        </div>
+        <div class="footer-col">
+          <h4>Author</h4>
+          <a href="https://github.com/HrshD1eux" target="_blank" rel="noopener">GitHub: @HrshD1eux</a>
+          <a href="#comparison">Compare Top 5</a>
+          <a href="#calculator-demo">Math Keypad Demo</a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© 2026 HrshD1eux. All rights reserved. Zero tracking cookies. Zero third-party scripts.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

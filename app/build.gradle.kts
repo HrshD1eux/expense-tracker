@@ -30,20 +30,16 @@ android {
             val keystorePath = System.getenv("KEYSTORE_PATH")
                 ?: (project.findProperty("KEYSTORE_PATH") as? String)
                 ?: "${rootProject.projectDir}/keystore/release.keystore"
-            val keystoreFile = file(keystorePath)
-
-            if (keystoreFile.exists()) {
-                storeFile = keystoreFile
-                storePassword = System.getenv("KEYSTORE_PASSWORD")
-                    ?: (project.findProperty("KEYSTORE_PASSWORD") as? String)
-                    ?: "expense123"
-                keyAlias = System.getenv("KEY_ALIAS")
-                    ?: (project.findProperty("KEY_ALIAS") as? String)
-                    ?: "expensetracker"
-                keyPassword = System.getenv("KEY_PASSWORD")
-                    ?: (project.findProperty("KEY_PASSWORD") as? String)
-                    ?: "expense123"
-            }
+            storeFile = file(keystorePath)
+            storePassword = System.getenv("KEYSTORE_PASSWORD")
+                ?: (project.findProperty("KEYSTORE_PASSWORD") as? String)
+                ?: "expense123"
+            keyAlias = System.getenv("KEY_ALIAS")
+                ?: (project.findProperty("KEY_ALIAS") as? String)
+                ?: "expensetracker"
+            keyPassword = System.getenv("KEY_PASSWORD")
+                ?: (project.findProperty("KEY_PASSWORD") as? String)
+                ?: "expense123"
         }
     }
 
@@ -58,9 +54,15 @@ android {
             ndk {
                 abiFilters.addAll(listOf("arm64-v8a", "armeabi-v7a"))
             }
-            val releaseSigning = signingConfigs.findByName("release")
-            if (releaseSigning?.storeFile?.exists() == true) {
-                signingConfig = releaseSigning
+            val releaseKeystore = file(
+                System.getenv("KEYSTORE_PATH")
+                    ?: (project.findProperty("KEYSTORE_PATH") as? String)
+                    ?: "${rootProject.projectDir}/keystore/release.keystore"
+            )
+            if (releaseKeystore.exists()) {
+                signingConfig = signingConfigs.getByName("release")
+            } else {
+                signingConfig = signingConfigs.getByName("debug")
             }
         }
         debug {
