@@ -65,11 +65,22 @@ jobs:
           KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
         run: |
           mkdir -p keystore
+          KEYSTORE_LOADED=false
           if [ -n "$KEYSTORE_BASE64" ]; then
-            echo "$KEYSTORE_BASE64" | base64 --decode > keystore/release.keystore
-            echo "Loaded keystore from GitHub Secrets"
-          else
-            echo "Generating release keystore on runner..."
+            echo "KEYSTORE_BASE64 secret detected. Attempting to decode..."
+            # Clean string: strip spaces, newlines, and carriage returns
+            CLEAN_B64=$(echo "$KEYSTORE_BASE64" | tr -d '\r\n[:space:]')
+            if echo "$CLEAN_B64" | base64 -d -i > keystore/release.keystore 2>/dev/null && [ -s keystore/release.keystore ]; then
+              echo "Successfully decoded keystore from GitHub Secrets"
+              KEYSTORE_LOADED=true
+            else
+              echo "::warning::Could not decode KEYSTORE_BASE64 secret into valid keystore. Falling back to runner key generation."
+              rm -f keystore/release.keystore
+            fi
+          fi
+
+          if [ "$KEYSTORE_LOADED" = false ]; then
+            echo "Generating fallback release keystore on runner..."
             keytool -genkeypair -v \
               -keystore keystore/release.keystore \
               -alias expensetracker \

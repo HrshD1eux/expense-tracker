@@ -1,6 +1,7 @@
-# 💰 Expense Tracker
-
 <div align="center">
+  <img src="art/logo.png" alt="Expense Tracker Logo" width="128" style="border-radius: 28px;" />
+  <br>
+  <h1>Expense Tracker</h1>
 
 ![Android](https://img.shields.io/badge/Platform-Android%208.0%2B%20(API%2026%2B)-3DDC84?style=for-the-badge&logo=android&logoColor=white)
 ![Kotlin](https://img.shields.io/badge/Kotlin-2.0%2B-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white)
@@ -10,8 +11,8 @@
 [![CI/CD](https://img.shields.io/github/actions/workflow/status/HrshD1eux/expense-tracker/release.yml?branch=main&style=for-the-badge&logo=githubactions&logoColor=white&label=Build)](https://github.com/HrshD1eux/expense-tracker/actions)
 
 <p align="center">
-  <b>A modern, lightning-fast, and uncompromisingly private personal finance manager built for Android.</b><br>
-  No accounts. No ads. No trackers. Zero network dependencies for financial data.
+  <b>A modern, fast, and 100% offline personal finance manager built for Android.</b><br>
+  No accounts. No ads. No telemetry. Hardware-encrypted on-device storage.
 </p>
 
 [**🌐 Live Website & Demo**](https://hrshd1eux.github.io/expense-tracker/) • [**📥 Direct Download APK**](https://github.com/HrshD1eux/expense-tracker/releases/latest/download/ExpenseTracker-v1.0.0-release.apk) • [**📦 All Releases**](https://github.com/HrshD1eux/expense-tracker/releases) • [**Developer Profile**](https://github.com/HrshD1eux)
