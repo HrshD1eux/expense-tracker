@@ -194,14 +194,14 @@
     </div>
   </section>
 
-  <!-- COMPARISON TABLE SECTION (Ruthless, Honest, Practical) -->
+  <!-- COMPARISON TABLE SECTION (Objective Architectural Comparison) -->
   <section id="comparison" class="section comparison-section">
     <div class="container">
       <div class="section-header text-center">
         <span class="section-tag">Comparison</span>
-        <h2 class="section-title">Expense Tracker vs. Popular Alternatives</h2>
+        <h2 class="section-title">Architectural Comparison with Common App Types</h2>
         <p class="section-desc">
-          A side-by-side comparison of offline storage, encryption, unlock options, and pricing models across popular expense tracking apps.
+          An objective look at how offline architecture, local encryption, unlock options, and privacy models compare across common categories of personal finance apps.
         </p>
       </div>
 
@@ -217,25 +217,25 @@
                   <span class="cell-app-version">v1.0.0 (Open Source)</span>
                 </div>
               </th>
-              <th>Axio (Walnut)</th>
-              <th>Money Manager</th>
-              <th>Spendee</th>
-              <th>Cashew</th>
-              <th>1Money</th>
+              <th>Cloud-First Sync Apps</th>
+              <th>Ad-Supported Apps</th>
+              <th>Proprietary Services</th>
+              <th>Unencrypted Local Apps</th>
+              <th>Freemium Trackers</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td class="feature-name">
                 <strong>100% Offline by Design</strong>
-                <span>Zero network transactions or telemetry required</span>
+                <span>Zero background data transactions or telemetry required</span>
               </td>
-              <td class="highlighted-col cell-win">✅ 100% Offline</td>
-              <td class="cell-fail">❌ Cloud Account Mandatory</td>
-              <td class="cell-partial">⚠️ Local-first + AdMob</td>
-              <td class="cell-fail">❌ Mandatory Cloud Sync</td>
-              <td class="cell-partial">⚠️ Local + Cloud Sync</td>
-              <td class="cell-fail">❌ Cloud Account Req</td>
+              <td class="highlighted-col cell-win">✅ 100% Offline Data</td>
+              <td class="cell-fail">❌ Mandatory Cloud Account</td>
+              <td class="cell-partial">⚠️ Local + Ad Network Traffic</td>
+              <td class="cell-fail">❌ Mandatory Server Sync</td>
+              <td class="cell-partial">⚠️ Local + Optional Sync</td>
+              <td class="cell-fail">❌ Remote Account Required</td>
             </tr>
 
             <tr>
@@ -244,11 +244,11 @@
                 <span>Protection against forensic disk dump & root access</span>
               </td>
               <td class="highlighted-col cell-win">✅ SQLCipher 256-Bit AES</td>
-              <td class="cell-fail">❌ Plaintext SQLite Cache</td>
-              <td class="cell-fail">❌ Plaintext SQLite</td>
-              <td class="cell-fail">❌ Plaintext SQLite</td>
-              <td class="cell-fail">❌ Unencrypted Room DB</td>
-              <td class="cell-fail">❌ Plaintext SQLite</td>
+              <td class="cell-fail">⚠️ Plaintext Device SQLite</td>
+              <td class="cell-fail">⚠️ Plaintext Device SQLite</td>
+              <td class="cell-fail">⚠️ Plaintext Device SQLite</td>
+              <td class="cell-fail">⚠️ Unencrypted Room / SQLite</td>
+              <td class="cell-fail">⚠️ Plaintext Device SQLite</td>
             </tr>
 
             <tr>
@@ -283,10 +283,10 @@
                 <span>Variety of secure entry methods</span>
               </td>
               <td class="highlighted-col cell-win">✅ Biometric, Pattern, Pass & PIN</td>
-              <td class="cell-partial">⚠️ Biometric/PIN only</td>
+              <td class="cell-partial">⚠️ Biometric or PIN only</td>
               <td class="cell-partial">⚠️ 4-Digit PIN only</td>
-              <td class="cell-partial">⚠️ Biometric/PIN only</td>
-              <td class="cell-partial">⚠️ Biometric/PIN only</td>
+              <td class="cell-partial">⚠️ Biometric or PIN only</td>
+              <td class="cell-partial">⚠️ Biometric or PIN only</td>
               <td class="cell-partial">⚠️ 4-Digit PIN only</td>
             </tr>
 
@@ -305,13 +305,13 @@
 
             <tr>
               <td class="feature-name">
-                <strong>Ads & SMS Financial Scraping</strong>
-                <span>Third-party monetization & data extraction</span>
+                <strong>Advertising & Third-Party Trackers</strong>
+                <span>Monetization SDKs & data telemetry</span>
               </td>
-              <td class="highlighted-col cell-win">✅ ZERO Ads & ZERO Scraping</td>
-              <td class="cell-fail">❌ Scrapes SMS & Promotes Loans</td>
+              <td class="highlighted-col cell-win">✅ ZERO Ads & ZERO Trackers</td>
+              <td class="cell-partial">⚠️ Promotional Push Alerts</td>
               <td class="cell-fail">❌ Interstitial & Banner Ads</td>
-              <td class="cell-fail">❌ Upsells & Promo Trackers</td>
+              <td class="cell-partial">⚠️ Subscription Upsell Prompts</td>
               <td class="cell-win">✅ Ad-free</td>
               <td class="cell-fail">❌ Banner Ads in Free Tier</td>
             </tr>
@@ -321,12 +321,12 @@
                 <strong>Pricing & Subscriptions</strong>
                 <span>Are core features held hostage behind paywalls?</span>
               </td>
-              <td class="highlighted-col cell-win">✅ 100% Free Forever (FOSS)</td>
-              <td class="cell-partial">⚠️ Free (Monetized via Data)</td>
-              <td class="cell-partial">⚠️ Paid License for Ad-free</td>
-              <td class="cell-fail">❌ $14.99–$29.99 / Year</td>
-              <td class="cell-partial">⚠️ Free with tip jar</td>
-              <td class="cell-fail">❌ $19.99 Premium Unlock</td>
+              <td class="highlighted-col cell-win">✅ 100% Free Forever (Apache 2.0)</td>
+              <td class="cell-partial">⚠️ Freemium Model</td>
+              <td class="cell-partial">⚠️ Paid Ad-free License</td>
+              <td class="cell-fail">❌ $15–$35 / Year Subscription</td>
+              <td class="cell-partial">⚠️ Free / Optional Tips</td>
+              <td class="cell-fail">❌ Paid Premium Upgrade</td>
             </tr>
 
             <tr>
@@ -335,8 +335,8 @@
                 <span>Quick glance at spending with 1-tap add</span>
               </td>
               <td class="highlighted-col cell-win">✅ Jetpack Glance (Material 3)</td>
-              <td class="cell-fail">❌ Legacy RemoteViews</td>
-              <td class="cell-partial">⚠️ Basic Legacy Widget</td>
+              <td class="cell-fail">⚠️ Basic RemoteViews</td>
+              <td class="cell-partial">⚠️ Basic Widget</td>
               <td class="cell-fail">❌ Subscription Required</td>
               <td class="cell-partial">⚠️ Basic Widget</td>
               <td class="cell-partial">⚠️ Basic Widget</td>
@@ -344,15 +344,15 @@
 
             <tr>
               <td class="feature-name">
-                <strong>APK Size & Performance Bloat</strong>
-                <span>Optimized native footprint</span>
+                <strong>APK Size & Performance Footprint</strong>
+                <span>Optimized native binary footprint</span>
               </td>
               <td class="highlighted-col cell-win">✅ ~12.3 MB (R8 Minified)</td>
-              <td class="cell-fail">❌ ~48 MB (SDK Bloat)</td>
-              <td class="cell-partial">⚠️ ~32 MB</td>
-              <td class="cell-fail">❌ ~44 MB</td>
-              <td class="cell-partial">⚠️ ~26 MB</td>
-              <td class="cell-partial">⚠️ ~24 MB</td>
+              <td class="cell-fail">❌ 35–50 MB</td>
+              <td class="cell-partial">⚠️ 25–40 MB</td>
+              <td class="cell-fail">❌ 40–55 MB</td>
+              <td class="cell-partial">⚠️ 25–35 MB</td>
+              <td class="cell-partial">⚠️ 20–30 MB</td>
             </tr>
 
             <tr>
@@ -362,10 +362,10 @@
               </td>
               <td class="highlighted-col cell-win">✅ 100% Local In-App Log Viewer</td>
               <td class="cell-fail">❌ Cloud SDKs (Mixpanel, etc.)</td>
-              <td class="cell-fail">❌ Firebase Crashlytics</td>
-              <td class="cell-fail">❌ Sentry / Firebase</td>
-              <td class="cell-partial">⚠️ Local / Sentry</td>
-              <td class="cell-fail">❌ Firebase Crashlytics</td>
+              <td class="cell-fail">❌ Remote Crashlytics SDK</td>
+              <td class="cell-fail">❌ Remote Telemetry SDKs</td>
+              <td class="cell-partial">⚠️ Local / Remote Sentry</td>
+              <td class="cell-fail">❌ Remote Crashlytics SDK</td>
             </tr>
           </tbody>
         </table>
@@ -575,15 +575,21 @@
           <a href="https://github.com/HrshD1eux/expense-tracker/issues" target="_blank" rel="noopener">Issue Tracker</a>
         </div>
         <div class="footer-col">
+          <h4>Legal & Privacy</h4>
+          <a href="https://github.com/HrshD1eux/expense-tracker/blob/main/PRIVACY_POLICY.md" target="_blank" rel="noopener">Privacy Policy</a>
+          <a href="https://github.com/HrshD1eux/expense-tracker/blob/main/LICENSE" target="_blank" rel="noopener">Apache 2.0 License</a>
+          <a href="https://github.com/HrshD1eux/expense-tracker/blob/main/NOTICE" target="_blank" rel="noopener">Third-Party Notices</a>
+        </div>
+        <div class="footer-col">
           <h4>Author</h4>
           <a href="https://github.com/HrshD1eux" target="_blank" rel="noopener">GitHub: @HrshD1eux</a>
-          <a href="#comparison">Compare Top 5</a>
+          <a href="#comparison">App Type Comparison</a>
           <a href="#calculator-demo">Math Keypad Demo</a>
         </div>
       </div>
     </div>
     <div class="container footer-bottom">
-      <p>© 2026 HrshD1eux. All rights reserved. Zero tracking cookies. Zero third-party scripts.</p>
+      <p>© 2026 HrshD1eux. Open source under Apache License 2.0. All transaction data remains strictly on your device.</p>
     </div>
   </footer>
 

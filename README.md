@@ -21,21 +21,21 @@
 
 ---
 
-## 🥊 Top 5 Alternatives vs. Expense Tracker
+## 🥊 Architectural Comparison: Expense Tracker vs. Common App Types
 
-| Feature / Dimension | **Expense Tracker (This App)** | **Axio (Walnut)** | **Money Manager (Realbyte)** | **Spendee** | **Cashew** | **1Money** |
-|:---|:---:|:---:|:---:|:---:|:---:|:---:|
-| **100% Offline (No Cloud Req)** | ✅ **YES (Zero Telemetry)** | ❌ Cloud Account Mandatory | ⚠️ Local + AdMob | ❌ Mandatory Cloud Sync | ⚠️ Local + Cloud Sync | ❌ Cloud Account Req |
-| **Database Encryption** | ✅ **SQLCipher 256-Bit AES** | ❌ Plaintext SQLite Cache | ❌ Plaintext SQLite | ❌ Plaintext SQLite | ❌ Unencrypted Room DB | ❌ Plaintext SQLite |
-| **Hardware Keystore (TEE)** | ✅ **Android Keystore** | ❌ None | ❌ None | ❌ None | ❌ None | ❌ None |
-| **In-Line Math Keypad** | ✅ **Live (+, -, ×, ÷)** | ❌ None | ⚠️ Separate Popup | ❌ Simple Keypad | ⚠️ Basic Arithmetic | ⚠️ Separate Popup |
-| **Multi-Mode App Locks** | ✅ **Biometric + Pattern + Pass + PIN** | ⚠️ Biometric/PIN only | ⚠️ 4-Digit PIN only | ⚠️ Biometric/PIN only | ⚠️ Biometric/PIN only | ⚠️ 4-Digit PIN only |
-| **Adaptive Category Frequency** | ✅ **Dynamic Auto-Sort** | ❌ Static List | ❌ Manual Sort Only | ❌ Static List | ❌ Static List | ❌ Static List |
-| **Ads & SMS Scraping** | ✅ **0 Ads & 0 Scraping** | ❌ Scrapes SMS & Loans | ❌ Banner/Interstitial Ads | ❌ Upsell & Trackers | ✅ Ad-free | ❌ Banner Ads in Free |
-| **Pricing / Paywalls** | ✅ **100% Free Forever (FOSS)** | ⚠️ Free (Monetized via Data)| ⚠️ $5.99 for Ad-free | ❌ $14.99–$29.99 / Year | ⚠️ Free / Tips | ❌ $19.99 License |
-| **Glance Home Widget** | ✅ **Jetpack Glance (Material 3)**| ❌ Legacy RemoteViews | ⚠️ Basic Widget | ❌ Subscription Paywall | ⚠️ Basic Widget | ⚠️ Basic Widget |
-| **APK Footprint** | ✅ **~12.3 MB (R8 Minified)** | ❌ ~48 MB (SDK Bloat) | ⚠️ ~32 MB | ❌ ~44 MB | ⚠️ ~26 MB | ⚠️ ~24 MB |
-| **Local Diagnostics** | ✅ **Local In-App Crash Logs** | ❌ Cloud Trackers | ❌ Firebase Crashlytics | ❌ Sentry / Firebase | ⚠️ Local / Sentry | ❌ Firebase Crashlytics |
+| Feature / Dimension | **Expense Tracker (This App)** | **Cloud-First Sync Apps** | **Ad-Supported Trackers** | **SMS-Scraping Apps** | **Proprietary Paywalled Apps** |
+|:---|:---:|:---:|:---:|:---:|:---:|
+| **Offline Architecture** | ✅ **100% Offline (Zero Telemetry)** | ❌ Mandatory Cloud Account | ⚠️ Local + Ad SDKs | ❌ Mandatory Server Upload | ❌ Forced Cloud Backup |
+| **Database Encryption** | ✅ **SQLCipher 256-Bit AES** | ⚠️ Plaintext Device SQLite | ⚠️ Plaintext Device SQLite | ⚠️ Unencrypted Device Cache | ⚠️ Plaintext Device SQLite |
+| **Hardware Keystore (TEE)** | ✅ **Android Keystore (MasterKey)** | ❌ None | ❌ None | ❌ None | ❌ None |
+| **In-Line Math Keypad** | ✅ **Live (+, -, ×, ÷) Math** | ❌ None | ⚠️ Separate Popup Modal | ❌ None | ⚠️ Basic Arithmetic Only |
+| **Multi-Mode App Locks** | ✅ **Biometric + Pattern + Pass + PIN** | ⚠️ Biometric or PIN only | ⚠️ 4-Digit PIN only | ⚠️ Biometric only | ⚠️ Biometric or PIN only |
+| **Adaptive Category Frequency** | ✅ **Dynamic Auto-Sort** | ❌ Static Alphabetical List | ❌ Manual Sorting Only | ❌ Fixed List | ❌ Static List |
+| **Advertising & Tracking** | ✅ **0 Ads & 0 Trackers** | ⚠️ Marketing Notifications | ❌ Interstitial & Banner Ads | ❌ Promotional Financial Offers | ❌ Premium Upsell Prompts |
+| **Pricing / Paywalls** | ✅ **100% Free & Open Source (FOSS)**| ⚠️ Freemium ($2-$5/mo) | ⚠️ Paid In-App Ad Removal | ⚠️ Free (Monetized via Lead-gen) | ❌ $15–$35 / Year Subscription |
+| **Home Screen Widget** | ✅ **Jetpack Glance (Material 3)** | ⚠️ Basic RemoteViews | ⚠️ Ad-Supported Widget | ❌ None | ⚠️ Paywalled Widget |
+| **APK Footprint** | ✅ **~12.3 MB (R8 Minified)** | ❌ 35–50 MB | ⚠️ 25–40 MB | ❌ 45–60 MB | ⚠️ 25–35 MB |
+| **Diagnostics & Error Logs** | ✅ **Local In-App Crash Logs** | ❌ Remote Crashlytics SDK | ❌ Remote Crashlytics SDK | ❌ Third-Party Analytics SDKs | ❌ Remote Crash Analytics |
 
 ---
 
@@ -197,19 +197,29 @@ If you are deploying your own automated releases, configure these secrets in you
 - **No Remote Servers**: No user data, expenses, notes, or balances are ever uploaded to any server.
 - **Zero Analytics**: No Google Firebase, Firebase Analytics, Crashlytics, Mixpanel, or third-party ad networks are included.
 - **Hardware-Encrypted Database**: All persistent data resides locally in a 256-bit AES encrypted SQLCipher database.
-- **No Unnecessary Permissions**: Only system permissions essential for local functions (e.g. biometrics, widget updates, notifications) are requested.
+- **Minimal Permissions**: The app operates offline. The `INTERNET` permission is used strictly when the user manually initiates a check for updates via the GitHub Releases API. Zero background telemetry or tracking.
+- For complete privacy details, see [PRIVACY_POLICY.md](PRIVACY_POLICY.md).
+
+---
+
+## ⚖️ Legal & Financial Disclaimer
+
+- **Informational Purpose Only**: Expense Tracker is an offline personal budgeting tool. It does not provide financial, investment, tax, accounting, or legal advice. All calculations, budget pacing, and "Safe to Spend" indicators are automated mathematical estimates.
+- **Limitation of Liability**: This software is provided "AS IS", without warranty of any kind. The developer shall not be liable for any financial losses, overdraft charges, data corruption, or damages arising from the use or inability to use this software. Users are strongly advised to keep periodic backups.
 
 ---
 
 ## 👨‍💻 Developer & Author
 
-Developed with care by **HrshD1eux**.
+Developed by **HrshD1eux**.
 
 - **GitHub Profile**: [@HrshD1eux](https://github.com/HrshD1eux)
 - **Repository**: [https://github.com/HrshD1eux/expense-tracker](https://github.com/HrshD1eux/expense-tracker)
 
 ---
 
-## 📄 License
+## 📄 License & Attributions
 
-This project is licensed under the **Apache License 2.0** or **MIT License** — see the [LICENSE](LICENSE) file for details.
+This project is licensed under the **Apache License 2.0** — see the [LICENSE](LICENSE) file for the full text.
+
+Third-party libraries, including SQLCipher (Copyright © Zetetic LLC, BSD 3-Clause) and AndroidX / Jetpack libraries (Apache 2.0), are used under their respective open-source licenses — see [NOTICE](NOTICE) for full attribution notices.

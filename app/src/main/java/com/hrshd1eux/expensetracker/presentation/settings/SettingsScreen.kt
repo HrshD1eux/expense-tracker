@@ -25,6 +25,8 @@ import androidx.compose.material.icons.filled.Category
 import androidx.compose.material.icons.filled.Code
 import androidx.compose.material.icons.filled.CurrencyRupee
 import androidx.compose.material.icons.filled.DarkMode
+import androidx.compose.material.icons.filled.Description
+import androidx.compose.material.icons.filled.Gavel
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Palette
@@ -36,6 +38,7 @@ import androidx.compose.material.icons.filled.Widgets
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.RadioButton
@@ -79,6 +82,8 @@ fun SettingsScreen(
     var showWidgetInfoDialog by remember { mutableStateOf(false) }
     var showAboutDialog by remember { mutableStateOf(false) }
     var showDiagnosticsDialog by remember { mutableStateOf(false) }
+    var showLicensesDialog by remember { mutableStateOf(false) }
+    var showDisclaimerDialog by remember { mutableStateOf(false) }
 
     if (showThemeDialog) {
         AlertDialog(
@@ -215,17 +220,100 @@ fun SettingsScreen(
                     Text(text = "Version ${BuildConfig.VERSION_NAME}", fontWeight = FontWeight.Bold)
                     Text(
                         text = "A 100% offline, privacy-first personal finance application.\n\n" +
-                                "• Zero internet permissions for data\n" +
-                                "• Zero analytics or third-party tracking\n" +
-                                "• No accounts or registration required\n" +
-                                "• Hardware-backed Keystore security\n" +
-                                "• All data stays securely on your device."
+                                "• 100% offline data storage & zero telemetry\n" +
+                                "• Zero background trackers or analytics\n" +
+                                "• Network permission strictly used for manual update checks\n" +
+                                "• Hardware-backed Keystore & SQLCipher encryption\n" +
+                                "• Licensed under Apache 2.0"
                     )
                 }
             },
             confirmButton = {
                 TextButton(onClick = { showAboutDialog = false }) {
                     Text("Close")
+                }
+            }
+        )
+    }
+
+    if (showLicensesDialog) {
+        AlertDialog(
+            onDismissRequest = { showLicensesDialog = false },
+            title = { Text("Open Source Licenses") },
+            text = {
+                Column(
+                    verticalArrangement = Arrangement.spacedBy(10.dp),
+                    modifier = Modifier.verticalScroll(rememberScrollState())
+                ) {
+                    Text(
+                        text = "Expense Tracker\nCopyright 2026 HrshD1eux\nLicensed under Apache License 2.0",
+                        style = MaterialTheme.typography.bodySmall,
+                        fontWeight = FontWeight.Bold
+                    )
+                    HorizontalDivider()
+                    Text(
+                        text = "SQLCipher for Android\nCopyright (c) 2008-2024, ZETETIC LLC\nAll rights reserved.\n\n" +
+                                "Redistribution and use in source and binary forms, with or without modification, are permitted provided that copyright notices and disclaimers are preserved. Provided 'AS IS' without warranty.",
+                        style = MaterialTheme.typography.bodySmall
+                    )
+                    HorizontalDivider()
+                    Text(
+                        text = "Android Jetpack (Room, Compose, Glance, Biometric)\nCopyright (c) The Android Open Source Project\nLicensed under Apache License 2.0",
+                        style = MaterialTheme.typography.bodySmall
+                    )
+                    HorizontalDivider()
+                    Text(
+                        text = "Kotlin & Kotlin Coroutines\nCopyright (c) JetBrains s.r.o. and Kotlin contributors\nLicensed under Apache License 2.0",
+                        style = MaterialTheme.typography.bodySmall
+                    )
+                    HorizontalDivider()
+                    Text(
+                        text = "Dagger Hilt\nCopyright (c) The Dagger Authors\nLicensed under Apache License 2.0",
+                        style = MaterialTheme.typography.bodySmall
+                    )
+                }
+            },
+            confirmButton = {
+                TextButton(onClick = { showLicensesDialog = false }) {
+                    Text("Close")
+                }
+            }
+        )
+    }
+
+    if (showDisclaimerDialog) {
+        AlertDialog(
+            onDismissRequest = { showDisclaimerDialog = false },
+            title = { Text("Legal & Financial Disclaimer") },
+            text = {
+                Column(
+                    verticalArrangement = Arrangement.spacedBy(8.dp),
+                    modifier = Modifier.verticalScroll(rememberScrollState())
+                ) {
+                    Text(
+                        text = "Not Financial Advice",
+                        fontWeight = FontWeight.Bold,
+                        style = MaterialTheme.typography.titleSmall
+                    )
+                    Text(
+                        text = "Expense Tracker is an offline personal budgeting tool designed for individual record-keeping. It does not provide financial, investment, legal, accounting, or tax advice. Calculations, spending velocity, and 'Daily Safe-to-Spend' metrics are automated estimates based on user-entered values.",
+                        style = MaterialTheme.typography.bodySmall
+                    )
+                    Text(
+                        text = "Limitation of Liability & No Warranty",
+                        fontWeight = FontWeight.Bold,
+                        style = MaterialTheme.typography.titleSmall,
+                        modifier = Modifier.padding(top = 8.dp)
+                    )
+                    Text(
+                        text = "This software is provided 'AS IS' without warranty of any kind, express or implied. Under no circumstances shall the developer be liable for financial damages, loss of funds, overdraft penalties, data corruption, or device Keystore key invalidation. Users are solely responsible for verifying amounts and making periodic encrypted backups.",
+                        style = MaterialTheme.typography.bodySmall
+                    )
+                }
+            },
+            confirmButton = {
+                TextButton(onClick = { showDisclaimerDialog = false }) {
+                    Text("I Understand")
                 }
             }
         )
@@ -522,6 +610,22 @@ fun SettingsScreen(
                         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(UpdateChecker.GITHUB_DEV_PROFILE_URL))
                         context.startActivity(intent)
                     }
+                )
+            }
+            item {
+                SettingsItem(
+                    icon = Icons.Default.Description,
+                    title = "Open Source Licenses",
+                    subtitle = "SQLCipher, AndroidX, and third-party notices",
+                    onClick = { showLicensesDialog = true }
+                )
+            }
+            item {
+                SettingsItem(
+                    icon = Icons.Default.Gavel,
+                    title = "Legal & Financial Disclaimer",
+                    subtitle = "Terms of use, no financial advice, and liability",
+                    onClick = { showDisclaimerDialog = true }
                 )
             }
             item {
